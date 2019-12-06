@@ -4,7 +4,7 @@
         </title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
         <script>
-            var socket=io.connect("http://localhost:9000/");
+            var socket=io();
             function onSubmit(){
                 console.log("here onsubmit");
                 socket.emit('myMsg',document.getElementById('msg').value);
