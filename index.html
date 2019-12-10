@@ -38,12 +38,12 @@
             clearFields();
         }
         function clearFields() {
-            $("#cmd1_2").val("");
-            $("#cmd1_3").val("");
+            $("#cmd1_2").val(0);
+            $("#cmd1_3").val("East");
             $("#cmd2").val("");
-            $("#cmd3_2").val("");
-            $("#cmd3_3").val("");
-            $("#cmd3_4").val("");
+            $("#cmd3_2").val(0);
+            $("#cmd3_3").val("East");
+            $("#cmd3_4").val("PARABOLIC");
             $("#commentary").val("");
         }
     </script>
@@ -82,7 +82,7 @@
     <!-- <h1 >Hello Node</h1>
         <input type="text" name="msg" id="msg"/><br><br>
         <button onclick="onSubmit()">Submit</button> -->
-    <div class=containe0-fluidr style="margin-top: 1%;">
+    <div class=containe0-fluidr style="margin-top: 6%;">
         <div class="row" style="margin: auto;">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
@@ -100,31 +100,14 @@
                             <div class="col-sm-12">
                                 <form class="form-inline">
                                     <div class="col-sm-3"><label class="labelStyles">Command 1</label></div>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-3">
                                         <input type="text" class="form-control setInputWidth" id="cmd1_1" name="cmd1_1" value="MOVE" disabled=true/>
                                     </div>
-                                </form>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <form class="form-inline">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-9">
-                                        <input type="number" class="form-control setInputWidth" id="cmd1_2" name="cmd1_2"/>
+                                    <div class="col-sm-3">
+                                        <input type="number" value="0" class="form-control setInputWidth" id="cmd1_2" name="cmd1_2"/>
                                     </div>
-                                </form>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <form class="form-inline">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-3">
                                         <select class="form-control setInputWidth" id="cmd1_3">
-                                            <option value="">Select</option>
                                             <option value="East">East</option>
                                             <option value="West">West</option>
                                             <option value="North">North</option>
@@ -159,19 +142,11 @@
                             <div class="col-sm-12">
                                 <form class="form-inline">
                                     <div class="col-sm-3"><label class="labelStyles">Command 3</label></div>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-5">
                                         <input type="text" class="form-control setInputWidth" id="cmd3_1" name="cmd3_1" value="MOVEBALL" disabled=true/>
                                     </div>
-                                </form>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <form class="form-inline">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-9">
-                                        <input type="number" class="form-control setInputWidth" id="cmd3_2" name="cmd3_2"/>
+                                    <div class="col-sm-4">
+                                        <input type="number" value="0" class="form-control setInputWidth" id="cmd3_2" name="cmd3_2"/>
                                     </div>
                                 </form>
                             </div>
@@ -181,9 +156,8 @@
                             <div class="col-sm-12">
                                 <form class="form-inline">
                                     <div class="col-sm-3"></div>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-4">
                                         <select class="form-control setInputWidth" id="cmd3_3">
-                                            <option value="">Select</option>
                                             <option value="East">East</option>
                                             <option value="West">West</option>
                                             <option value="North">North</option>
@@ -194,17 +168,8 @@
                                             <option value="SW">South-West</option>
                                         </select>
                                     </div>
-                                </form>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <form class="form-inline">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-5">
                                         <select class="form-control setInputWidth" id="cmd3_4">
-                                            <option value="">Select</option>
                                             <option value="PARABOLIC">PARABOLIC</option>
                                             <option value="GROUND">GROUND</option>
                                         </select>
