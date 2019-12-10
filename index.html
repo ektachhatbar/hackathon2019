@@ -1,171 +1,186 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            AR Sports
-        </title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-        <script>
-            var socket=io();
-            function onSubmit(jsonObj){
-                console.log("here onsubmit");
-                //socket.emit('myMsg',document.getElementById('msg').value);
-                socket.emit('myMsg',JSON.stringify(jsonObj));
-            }
-            socket.on('myMsg',function(msg){
-                console.log(msg);
-                document.getElementById('printMsgDiv').innerHTML=document.getElementById('printMsgDiv').innerHTML+"<br>"+msg;
-            });
-            function onRun(){
-                var jsonObj={
-                    "commands":{},
-                    "commentary":""
-                };
-                jsonObj.commands.cmd1=$("#cmd1").val();
-                jsonObj.commands.cmd2=$("#cmd2").val();
-                jsonObj.commands.cmd3=$("#cmd3").val();
-                jsonObj.commentary=$("#commentary").val();
-                onSubmit(jsonObj);
-                clearFields();
-            }
-            function clearFields(){
-                $("#cmd1").val("");
-                $("#cmd2").val("");
-                $("#cmd3").val("");
-                $("#commentary").val("");
-            }
-        </script>
-        <style>
-            body{
-                background-color: #e8e8e8;
-            }
-            .setInputWidth{
-                width: 100% !important;
-                background-color: #e8e8e8 !important;
-            }
-            .cardStyles{
-                background-color:#0E3B4F;
-            }
-            .cardHeadStyles{
-                color: #e8e8e8;
-                text-align: center;
-                font-size: 32px;
-                font-weight: bold;
-                font-family: sans-serif;
-                border-bottom: double;
-            }
-            .labelStyles{
-                color: #e8e8e8;
-                font-family: sans-serif;
-                font-size: 20px;
-            }
-        </style>
-    </head>
-    <body>
-        <!-- <h1 >Hello Node</h1>
+
+<head>
+    <title>
+        AR Sports
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script>
+        var socket = io();
+        function onSubmit(jsonObj) {
+            console.log("here onsubmit");
+            //socket.emit('myMsg',document.getElementById('msg').value);
+            socket.emit('myMsg', JSON.stringify(jsonObj));
+        }
+        socket.on('myMsg', function (msg) {
+            console.log(msg);
+            document.getElementById('printMsgDiv').innerHTML = document.getElementById('printMsgDiv').innerHTML + "<br>" + msg;
+        });
+        function onRun() {
+            var jsonObj = {
+                "cmd1": "",
+                "cmd2": "",
+                "cmd3": "",
+                "commentary": ""
+            };
+            jsonObj.cmd1 = $("#cmd1").val();
+            jsonObj.cmd2 = $("#cmd2").val();
+            jsonObj.cmd3 = $("#cmd3").val();
+            jsonObj.commentary = $("#commentary").val();
+            onSubmit(jsonObj);
+            clearFields();
+        }
+        function clearFields() {
+            $("#cmd1").val("");
+            $("#cmd2").val("");
+            $("#cmd3").val("");
+            $("#commentary").val("");
+        }
+    </script>
+    <style>
+        body {
+            background-color: #e8e8e8;
+        }
+
+        .setInputWidth {
+            width: 100% !important;
+            background-color: #e8e8e8 !important;
+        }
+
+        .cardStyles {
+            background-color: #0E3B4F;
+        }
+
+        .cardHeadStyles {
+            color: #e8e8e8;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            font-family: sans-serif;
+            border-bottom: double;
+        }
+
+        .labelStyles {
+            color: #e8e8e8;
+            font-family: sans-serif;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1 >Hello Node</h1>
         <input type="text" name="msg" id="msg"/><br><br>
         <button onclick="onSubmit()">Submit</button> -->
-        <div class=containe0-fluidr style="margin-top: 8%;">
-            <div class="row" style="margin: auto;">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-6">
-                    <div class="card cardStyles">
-                            <div class="card-body">
-                            <div class="row">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-6">
-                                            <div class="cardHeadStyles">AR Sports</div>
-                                    </div>
+    <div class=containe0-fluidr style="margin-top: 8%;">
+        <div class="row" style="margin: auto;">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class="card cardStyles">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-6">
+                                <div class="cardHeadStyles">AR Sports</div>
                             </div>
-                            <br>
-                            <br>
-                            <div class="row">
-                                    <div class="col-sm-12">
-                                    <form class="form-inline">
-                                            <div class="col-sm-3"><label class="labelStyles">Command 1</label></div>
-                                            <div class="col-sm-9">
-                                                <select class="form-control setInputWidth" id="cmd1">
-                                                        <option value="">Select</option>
-                                                        <option value="MOVE 30 SE">MOVE 30 SE</option>
-                                                        <option value="MOVE 60 NE">MOVE 60 NE</option>
-                                                        <option value="MOVE 45 SW">MOVE 45 SW</option>
-                                                        <option value="MOVE 30 NW">MOVE 30 NW</option>
-                                                </select>
-                                            </div>
-                                    </form>
-                                    </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                    <div class="col-sm-12">
-                                    <form class="form-inline">
-                                            <div class="col-sm-3"><label class="labelStyles">Command 2</label></div>
-                                            <div class="col-sm-9">
-                                                <select class="form-control setInputWidth" id="cmd2">
-                                                        <option value="">Select</option>
-                                                        <option value="ANIMATE CHIP">ANIMATE CHIP</option>
-                                                        <option value="ANIMATE DRIVE">ANIMATE DRIVE</option>
-                                                        <option value="ANIMATE BAD SHOT">ANIMATE BAD SHOT</option>
-                                                        <option value="ANIMATE WALK">ANIMATE WALK</option>
-                                                </select>
-                                            </div>
-                                    </form>
-                                    </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                    <div class="col-sm-12">
-                                    <form class="form-inline">
-                                            <div class="col-sm-3"><label class="labelStyles">Command 3</label></div>
-                                            <div class="col-sm-9">
-                                                <select class="form-control setInputWidth" id="cmd3">
-                                                        <option value="">Select</option>
-                                                        <option value="MOVEBALL 20 SW PARABOLIC/GROUND">MOVEBALL 20 SW PARABOLIC/GROUND</option>
-                                                        <option value="MOVEBALL 30 NW PARABOLIC/GROUND">MOVEBALL 30 NW PARABOLIC/GROUND</option>
-                                                        <option value="MOVEBALL 30 NW PARABOLIC/GROUND">MOVEBALL 30 NW PARABOLIC/GROUND</option>
-                                                        <option value="MOVEBALL 60 NE PARABOLIC/GROUND">MOVEBALL 60 NE PARABOLIC/GROUND</option>
-                                                </select>
-                                            </div>
-                                    </form>
-                                    </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                    <div class="col-sm-12">
-                                    <form class="form-inline">
-                                            <div class="col-sm-3"><label class="labelStyles">Commentary</label></div>
-                                            <div class="col-sm-9">
-                                                    <textarea class="form-control setInputWidth" rows="3" id="commentary"></textarea>
-                                            </div>
-                                    </form>
-                                    </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                    <div class="col-sm-12">
-                                    <form class="form-inline">
-                                            <div class="col-sm-4"></div>
-                                            <div class="col-sm-4">
-                                                    <button type="button" class="btn btn-success" style="width: 100%;" onclick="onRun()">Run</button>
-                                            </div>
-                                    </form>
-                                    </div>
-                            </div>
-                            <br>
-                            <br>
                         </div>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form class="form-inline">
+                                    <div class="col-sm-3"><label class="labelStyles">Command 1</label></div>
+                                    <div class="col-sm-9">
+                                        <select class="form-control setInputWidth" id="cmd1">
+                                            <option value="">Select</option>
+                                            <option value="MOVE 30 SE">MOVE 30 SE</option>
+                                            <option value="MOVE 60 NE">MOVE 60 NE</option>
+                                            <option value="MOVE 45 SW">MOVE 45 SW</option>
+                                            <option value="MOVE 30 NW">MOVE 30 NW</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form class="form-inline">
+                                    <div class="col-sm-3"><label class="labelStyles">Command 2</label></div>
+                                    <div class="col-sm-9">
+                                        <select class="form-control setInputWidth" id="cmd2">
+                                            <option value="">Select</option>
+                                            <option value="ANIMATE CHIP">ANIMATE CHIP</option>
+                                            <option value="ANIMATE DRIVE">ANIMATE DRIVE</option>
+                                            <option value="ANIMATE BAD SHOT">ANIMATE BAD SHOT</option>
+                                            <option value="ANIMATE WALK">ANIMATE WALK</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form class="form-inline">
+                                    <div class="col-sm-3"><label class="labelStyles">Command 3</label></div>
+                                    <div class="col-sm-9">
+                                        <select class="form-control setInputWidth" id="cmd3">
+                                            <option value="">Select</option>
+                                            <option value="MOVEBALL 20 SW PARABOLIC/GROUND">MOVEBALL 20 SW
+                                                PARABOLIC/GROUND</option>
+                                            <option value="MOVEBALL 30 NW PARABOLIC/GROUND">MOVEBALL 30 NW
+                                                PARABOLIC/GROUND</option>
+                                            <option value="MOVEBALL 30 NW PARABOLIC/GROUND">MOVEBALL 30 NW
+                                                PARABOLIC/GROUND</option>
+                                            <option value="MOVEBALL 60 NE PARABOLIC/GROUND">MOVEBALL 60 NE
+                                                PARABOLIC/GROUND</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form class="form-inline">
+                                    <div class="col-sm-3"><label class="labelStyles">Commentary</label></div>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control setInputWidth" rows="3"
+                                            id="commentary"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form class="form-inline">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-4">
+                                        <button type="button" class="btn btn-success" style="width: 100%;"
+                                            onclick="onRun()">Run</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="printMsgDiv">
+    </div>
+    <div id="printMsgDiv">
 
-            </div>
-    </body>
+    </div>
+</body>
+
 </html>
